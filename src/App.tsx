@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { insertNote } from './features/notes/noteSlice';
 import { NoteData, Note } from './features/notes/noteSlice';
 import NoteItem from './components/NoteItem/NoteItem';
-import { NoteGrid } from './styles/NoteStyles';
+import { NoteGrid, AppContainer } from './styles/NoteStyles';
 
 function App() {
 
@@ -27,12 +27,11 @@ function App() {
   }
 
   return (
-    <>
+    <AppContainer>
       <NoteGrid>
         <RenderNotes/>
       </NoteGrid>
-
-    </>
+    </AppContainer>
   )
 }
 
