@@ -5,11 +5,15 @@ interface NoteProps {
     note: Note
 }
 
+export interface NoteContainerProps {
+    bgColor : string
+}
+
 const NoteItem: React.FC<NoteProps> = (props: NoteProps) => {
-    console.log(props.note);
+    let {color, text} = props.note;
     return (
-        <NoteContainer>
-            <NoteData>{props.note.text}</NoteData>
+        <NoteContainer bgColor={color}>
+            <NoteData>{text}</NoteData>
         </NoteContainer>
 
     )

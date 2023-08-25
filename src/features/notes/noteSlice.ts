@@ -4,7 +4,8 @@ export interface Note {
     id : number,
     text : string,
     starred : boolean,
-    date : Date
+    date : Date,
+    color : string
 };
 
 interface NotesArray {
@@ -21,13 +22,22 @@ const initialState : NotesArray = {
             id : 1,
             text : "This is my first note.",
             starred : false,
-            date : new Date('25/08/2023')
+            date : new Date('2023/02/03'),
+            color : '#C6D947'
         },
         {
             id : 2,
             text : "This application might come in handy :).",
             starred : true,
-            date : new Date('22/08/2023')
+            date : new Date('2023/04/03'),
+            color : '#F3542A'
+        },
+        {
+            id : 3,
+            text : "Shopping.",
+            starred : true,
+            date : new Date('2023/04/03'),
+            color : '#7049F0'
         }
     ]
 };

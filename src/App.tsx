@@ -14,14 +14,14 @@ function App() {
 
   const RenderNotes: React.FC = () => {
     return (
-      <div>
-        {notes.map((note: Note) => {
-          return (
-            <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+      <div style={{ display: 'flex', gap: '2rem' }}>
+        {
+          notes.map((note: Note) => {
+            return (
               <NoteItem note={note} />
-            </div>
-          )
-        })}
+            )
+          })
+        }
       </div>
     )
   }
@@ -29,7 +29,7 @@ function App() {
   return (
     <AppContainer>
       <NoteGrid>
-        <RenderNotes/>
+        <RenderNotes />
       </NoteGrid>
     </AppContainer>
   )
