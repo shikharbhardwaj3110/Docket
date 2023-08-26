@@ -6,12 +6,12 @@ import {
     NoteDataContainer,
     NoteEditBtn,
     NoteDate,
-    NoteDataInput
+    NoteDataInput,
 } from "../../styles/NoteStyles";
 import { AiFillStar } from "react-icons/ai";
 import { getFormattedDate } from "../../utils/dateUtil";
 import { BsFillPencilFill } from "react-icons/bs";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 interface NoteProps {
     note: Note
@@ -28,13 +28,6 @@ const NoteItem: React.FC<NoteProps> = (props: NoteProps) => {
 
     const [isEditing, setIsEditing] = useState(false);
     const [textInput, setTextInput] = useState(text);
-    const inputRef = useRef<HTMLTextAreaElement>(null);
-
-    const focusInput = () => {
-        if(inputRef.current) {
-            inputRef.current.focus();
-        }
-    }
 
     return (
         <NoteContainer bgColor={color}>
@@ -46,7 +39,6 @@ const NoteItem: React.FC<NoteProps> = (props: NoteProps) => {
                         onChange={(e) => {setTextInput(e.target.value)}}
                         onBlur={() => {setIsEditing(false)}}
                         bgColor={color}
-                        ref={inputRef}
                         autoFocus={true}
                     />
                     :

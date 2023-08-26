@@ -3,6 +3,8 @@ import { NoteContainerProps } from "../components/NoteItem/NoteItem";
 
 export const NoteGrid = styled.div`
     gap: 20px;
+    padding-top : 2.5rem;
+    padding-bottom : 2.5rem;
 `
 
 export const NoteContainer = styled.div<{ bgColor?: string }>`
@@ -75,10 +77,27 @@ export const NoteDate = styled.span`
 export const HeaderTitle = styled.h4`
     font-family: 'Rubik', sans-serif;
     font-size : 4rem;
-    margin-bottom : 3rem;
+   
     @media (max-width: 768px) {
         font-size : 2.5rem;
       }
+`
+
+export const HeaderContainer = styled.div`
+      display : flex;
+      align-items : center;
+      justify-content : space-between;
+`
+
+export const NewNoteBtnContainer = styled.div`
+      display : flex;
+      padding : 0.4rem;
+      background-color : #31291D;
+      align-items : center;
+      justify-content : center;
+      cursor : pointer;
+      border-radius : 30px;
+
 `
 
 export const NoteItemsWrapper = styled.div`
@@ -109,5 +128,41 @@ export const NoteDataInput = styled.textarea<{ bgColor?: string }>`
       background-color : ${props => props.bgColor};
       @media (max-width: 768px) {
           height : 5rem;
+        }
+`
+
+export const SearchBarGrid = styled.div`
+        margin-top : 2rem;
+        margin-bottom : 2rem;
+`
+
+export const SearchBarContainer = styled.div`
+        display : flex;
+        border : 1px solid whitesmoke;
+        background-color : whitesmoke;
+        align-items : center;
+        border-radius : 10px;
+        width : 40%;
+        @media (max-width: 768px) {
+          width : 100%;
+        }
+        @media (min-width: 769px) and (max-width : 1000px) {
+          width : 50%;
+        }
+`
+
+export const SearchBarInput = styled.input`
+        outline : none;
+        border : none;
+        padding-left : 0.5rem;
+        background-color : whitesmoke;
+        padding-top : 0.8rem;
+        padding-bottom : 0.8rem;
+        font-size : 1.1rem;
+        flex-grow : 1;
+        color : 
+        &::placeholder {
+          color: #999;
+          font-size : 1.1rem;
         }
 `

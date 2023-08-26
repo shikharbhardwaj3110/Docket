@@ -1,18 +1,30 @@
-import './App.css'
+import './App.css';
+import { useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { insertNote } from './features/notes/noteSlice';
 import { NoteData, Note } from './features/notes/noteSlice';
 import NoteItem from './components/NoteItem/NoteItem';
-import { 
-         NoteGrid,
-         AppContainer,
-         HeaderTitle,
-         NoteItemsWrapper 
-        } from './styles/NoteStyles';
+import {
+  NoteGrid,
+  AppContainer,
+  HeaderTitle,
+  NoteItemsWrapper,
+  HeaderContainer,
+  NewNoteBtnContainer
+} from './styles/NoteStyles';
+import { AiOutlinePlus } from "react-icons/ai";
+import NewNoteModal from './components/NewNoteModal/NewNoteModal';
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
   const notes = useSelector((state: NoteData) => state.notes.notes);
+
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const filteredNotes = notes.filter((note : Note) =>
+    note.text.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const dispatch = useDispatch();
   console.log(notes);
@@ -22,7 +34,7 @@ function App() {
 
       <NoteItemsWrapper>
         {
-          notes.map((note: Note) => {
+          filteredNotes.map((note: Note) => {
             return (
               <NoteItem note={note} />
             )
@@ -34,9 +46,24 @@ function App() {
 
   return (
     <AppContainer>
-      <HeaderTitle>
-        Notes
-      </HeaderTitle>
+      <NewNoteModal/>
+      <HeaderContainer>
+        <HeaderTitle>
+          Notes
+        </HeaderTitle>
+        <NewNoteBtnContainer>
+          <AiOutlinePlus
+            size={35}
+            color="white"
+            data-bs-toggle="modal" 
+            data-bs-target="#newNoteModal"
+          />
+        </NewNoteBtnContainer>
+      </HeaderContainer>
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
       <NoteGrid>
         <RenderNotes />
       </NoteGrid>
