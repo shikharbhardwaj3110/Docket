@@ -3,7 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { insertNote } from './features/notes/noteSlice';
 import { NoteData, Note } from './features/notes/noteSlice';
 import NoteItem from './components/NoteItem/NoteItem';
-import { NoteGrid, AppContainer } from './styles/NoteStyles';
+import { 
+         NoteGrid,
+         AppContainer,
+         HeaderTitle,
+         NoteItemsWrapper 
+        } from './styles/NoteStyles';
 
 function App() {
 
@@ -14,7 +19,8 @@ function App() {
 
   const RenderNotes: React.FC = () => {
     return (
-      <div style={{ display: 'flex', gap: '2rem', flexWrap : 'wrap', justifyContent : 'flex-start' }}>
+
+      <NoteItemsWrapper>
         {
           notes.map((note: Note) => {
             return (
@@ -22,12 +28,15 @@ function App() {
             )
           })
         }
-      </div>
+      </NoteItemsWrapper>
     )
   }
 
   return (
     <AppContainer>
+      <HeaderTitle>
+        Notes
+      </HeaderTitle>
       <NoteGrid>
         <RenderNotes />
       </NoteGrid>

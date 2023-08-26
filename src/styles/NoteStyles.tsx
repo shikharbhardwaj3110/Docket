@@ -20,6 +20,7 @@ export const NoteContainer = styled.div<{bgColor? : string}>`
     width: 100%;
     height: auto;
   }
+
 `
 
 export const AppContainer = styled.div`
@@ -39,8 +40,11 @@ export const NoteData = styled.span`
 `
 
 export const NoteDataContainer = styled.div`
-    height : 12rem;
+    height : 8rem;
     overflow : hidden;
+    @media (max-width: 768px) {
+        height : 5rem;
+      }
 `
 
 export const NoteEditContainer = styled.div`
@@ -65,4 +69,24 @@ export const NoteDate = styled.span`
     font-weight : 400;
     font-family: 'Poppins', sans-serif;
     color : #454242ab;
+`
+
+export const HeaderTitle = styled.h4`
+    font-family: 'Rubik', sans-serif;
+    font-size : 4rem;
+    margin-bottom : 3rem;
+    @media (max-width: 768px) {
+        font-size : 2.5rem;
+      }
+`
+
+export const NoteItemsWrapper = styled.div`
+      display : flex;
+      gap : 2rem;
+      flex-wrap : wrap;
+      justify-content : flex-start;
+      @media (max-width: 768px) {
+        row-gap : 1rem;
+      }
+      
 `

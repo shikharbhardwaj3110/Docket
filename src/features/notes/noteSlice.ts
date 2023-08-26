@@ -27,7 +27,7 @@ const initialState : NotesArray = {
         },
         {
             id : 2,
-            text : "This application might come assd  asd a sa ds a s  in handy  asd  sdas s ad as sad dssssssssssssssssssssssssssssssssssssssssssssssssssss s asd d wdas  sadwawd asdwasd awdasd dwa asdww  sadwwa  asdwas dawsxd d dwas  dwasd wa:) cas  sa as d aas ds.",
+            text : "This application might come in handy :).",
             starred : true,
             date : new Date('2023/04/03'),
             color : '#F3542A'
@@ -38,6 +38,20 @@ const initialState : NotesArray = {
             starred : true,
             date : new Date('2023/04/03'),
             color : '#7049F0'
+        },
+        {
+            id : 4,
+            text : "Go to gym.",
+            starred : true,
+            date : new Date('2023/02/12'),
+            color : '#F5972C'
+        },
+        {
+            id : 5,
+            text : "Blank.",
+            starred : true,
+            date : new Date('2023/02/12'),
+            color : '#0AA4F6'
         }
     ]
 };
