@@ -2,8 +2,6 @@ import { styled } from "styled-components";
 import { NoteContainerProps } from "../components/NoteItem/NoteItem";
 
 export const NoteGrid = styled.div`
-    display : grid;
-    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 `
 
@@ -14,13 +12,57 @@ export const NoteContainer = styled.div<{bgColor? : string}>`
     padding-right : 2rem;
     padding-top : 2rem;
     padding-bottom : 2rem;
-    height : 10rem;
-    width : 12rem;
-   
+    min-height : 15rem;
+    width : 20rem; 
+
+  @media (max-width: 768px) {
+    /* Styles for screens with a maximum width of 768px */
+    width: 100%;
+    height: auto;
+  }
 `
+
 export const AppContainer = styled.div`
     margin : 4rem;
+    @media (max-width: 768px) {
+        margin : 2rem;
+      }
 `
 export const NoteData = styled.span`
     font-family: 'Poppins', sans-serif;
+    font-weight : 500;
+    white-space : wrap;
+    overflow: hidden; 
+    word-break : break-all;
+    text-overflow: ellipsis;
+    padding-bottom : 0rem;
+`
+
+export const NoteDataContainer = styled.div`
+    height : 12rem;
+    overflow : hidden;
+`
+
+export const NoteEditContainer = styled.div`
+    margin-top : 3rem;
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+`
+
+export const NoteEditBtn = styled.div`
+    padding : 10px;
+    height : 3rem;
+    width : 3rem;
+    border-radius : 30px;
+    background-color : #31291D;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+`
+
+export const NoteDate = styled.span`
+    font-weight : 400;
+    font-family: 'Poppins', sans-serif;
+    color : #454242ab;
 `

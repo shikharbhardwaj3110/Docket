@@ -10,11 +10,11 @@ function App() {
   const notes = useSelector((state: NoteData) => state.notes.notes);
 
   const dispatch = useDispatch();
-  console.log(notes)
+  console.log(notes);
 
   const RenderNotes: React.FC = () => {
     return (
-      <div style={{ display: 'flex', gap: '2rem' }}>
+      <div style={{ display: 'flex', gap: '2rem', flexWrap : 'wrap', justifyContent : 'flex-start' }}>
         {
           notes.map((note: Note) => {
             return (

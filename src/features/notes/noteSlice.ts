@@ -27,7 +27,7 @@ const initialState : NotesArray = {
         },
         {
             id : 2,
-            text : "This application might come in handy :).",
+            text : "This application might come assd  asd a sa ds a s  in handy  asd  sdas s ad as sad dssssssssssssssssssssssssssssssssssssssssssssssssssss s asd d wdas  sadwawd asdwasd awdasd dwa asdww  sadwwa  asdwas dawsxd d dwas  dwasd wa:) cas  sa as d aas ds.",
             starred : true,
             date : new Date('2023/04/03'),
             color : '#F3542A'
