@@ -5,12 +5,13 @@ import {
     NoteEditContainer,
     NoteDataContainer,
     NoteEditBtn,
-    NoteDate
+    NoteDate,
+    NoteDataInput
 } from "../../styles/NoteStyles";
-
 import { AiFillStar } from "react-icons/ai";
 import { getFormattedDate } from "../../utils/dateUtil";
 import { BsFillPencilFill } from "react-icons/bs";
+import { useState, useRef } from "react";
 
 interface NoteProps {
     note: Note
@@ -21,20 +22,48 @@ export interface NoteContainerProps {
 };
 
 const NoteItem: React.FC<NoteProps> = (props: NoteProps) => {
+
     let { color, text, date } = props.note;
     let formattedDate = getFormattedDate(date);
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [textInput, setTextInput] = useState(text);
+    const inputRef = useRef<HTMLTextAreaElement>(null);
+
+    const focusInput = () => {
+        if(inputRef.current) {
+            inputRef.current.focus();
+        }
+    }
+
     return (
         <NoteContainer bgColor={color}>
             <NoteDataContainer>
-                <NoteData>{text}</NoteData>
+                {
+                    isEditing ?   
+                    <NoteDataInput
+                        value={textInput}
+                        onChange={(e) => {setTextInput(e.target.value)}}
+                        onBlur={() => {setIsEditing(false)}}
+                        bgColor={color}
+                        ref={inputRef}
+                        autoFocus={true}
+                    />
+                    :
+                    <NoteData>
+                        {textInput}
+                    </NoteData>
+                }
             </NoteDataContainer>
             <NoteEditContainer>
                 <NoteDate>
                     {formattedDate}
                 </NoteDate>
-                <NoteEditBtn>
-                    <BsFillPencilFill color='white' size={20}>
-                    </BsFillPencilFill>
+                <NoteEditBtn onClick={() => {setIsEditing(true)}}>
+                    <BsFillPencilFill 
+                        color='white' 
+                        size={20}
+                    />
                 </NoteEditBtn>
             </NoteEditContainer>
         </NoteContainer>

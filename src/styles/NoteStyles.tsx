@@ -5,7 +5,7 @@ export const NoteGrid = styled.div`
     gap: 20px;
 `
 
-export const NoteContainer = styled.div<{bgColor? : string}>`
+export const NoteContainer = styled.div<{ bgColor?: string }>`
     background-color : ${props => props.bgColor};
     border-radius : 15px;
     padding-left : 2rem;
@@ -63,6 +63,7 @@ export const NoteEditBtn = styled.div`
     display : flex;
     align-items : center;
     justify-content : center;
+    cursor : pointer;
 `
 
 export const NoteDate = styled.span`
@@ -89,4 +90,24 @@ export const NoteItemsWrapper = styled.div`
         row-gap : 1rem;
       }
       
+`
+
+export const NoteDataInput = styled.textarea<{ bgColor?: string }>`
+      border : none;
+      outline : none;
+      font-family: 'Poppins', sans-serif;
+      font-weight : 500;
+      white-space : wrap;
+      overflow: hidden; 
+      word-break : break-all;
+      text-overflow: ellipsis;
+      padding-bottom : 0rem;
+      height : 8rem;
+      width : 100%;
+      resize : none;
+      overflow : hidden;
+      background-color : ${props => props.bgColor};
+      @media (max-width: 768px) {
+          height : 5rem;
+        }
 `
