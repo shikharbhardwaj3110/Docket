@@ -21,6 +21,7 @@ function App() {
   const notes = useSelector((state: NoteData) => state.notes.notes);
 
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const filteredNotes = notes.filter((note : Note) =>
     note.text.toLowerCase().includes(searchTerm.toLowerCase())
@@ -46,7 +47,9 @@ function App() {
 
   return (
     <AppContainer>
-      <NewNoteModal/>
+      <NewNoteModal
+        isModalOpen={isModalOpen}
+      />
       <HeaderContainer>
         <HeaderTitle>
           Notes
@@ -57,6 +60,7 @@ function App() {
             color="white"
             data-bs-toggle="modal" 
             data-bs-target="#newNoteModal"
+            onClick={ () => { setIsModalOpen(true) }}
           />
         </NewNoteBtnContainer>
       </HeaderContainer>

@@ -166,3 +166,31 @@ export const SearchBarInput = styled.input`
           font-size : 1.1rem;
         }
 `
+
+export const NewNoteModalInput = styled.textarea<{bgColor? : string}>`
+        outline : none;
+        border : none;
+        font-family: 'Poppins', sans-serif;
+        padding-top : 1rem;
+        width : 100%;
+        height : 12rem;
+        background-color : ${props => props.bgColor};
+        resize : none;
+`
+
+export const ModalBody = styled.div<{bgColor? : string}>`
+        position : relative;
+        flex : 1 1 auto;
+        background-color : ${props => props.bgColor};
+        border-bottom-left-radius : 10px;
+        border-bottom-right-radius : 10px;
+`
+
+export const ModalColorButton = styled.button<{bgColor? : string, marginLeft? : string}>`
+        background-color : ${props => props.bgColor};
+        border-radius : 30px;
+        height : 1rem;
+        width : 1rem;
+        margin-left : ${props => props.marginLeft};
+        border : none;
+`
