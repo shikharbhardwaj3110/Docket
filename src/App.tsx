@@ -2,7 +2,7 @@ import './App.css';
 import { useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { insertNote } from './features/notes/noteSlice';
-import { NoteData, Note } from './features/notes/noteSlice';
+import { INoteData, INote } from './features/notes/noteSlice';
 import NoteItem from './components/NoteItem/NoteItem';
 import {
   NoteGrid,
@@ -18,26 +18,28 @@ import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
-  const notes = useSelector((state: NoteData) => state.notes.notes);
+  const notes = useSelector((state: INoteData) => state.notes.notes);
 
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const filteredNotes = notes.filter((note : Note) =>
+  const filteredNotes = notes.filter((note : INote) =>
     note.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const dispatch = useDispatch();
-  console.log(notes);
 
   const RenderNotes: React.FC = () => {
     return (
 
       <NoteItemsWrapper>
         {
-          filteredNotes.map((note: Note) => {
+          filteredNotes.map((note: INote) => {
             return (
-              <NoteItem note={note} />
+              <NoteItem 
+                note={note}
+                key={note.id}  
+              />
             )
           })
         }

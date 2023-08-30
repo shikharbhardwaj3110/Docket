@@ -5,12 +5,12 @@ import {
     SearchBarGrid
 } from "../../styles/NoteStyles";
 
-interface SearchBarProps {
+interface ISearchBarProps {
     searchTerm : string,
     setSearchTerm: (term: string) => void;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({ setSearchTerm }) => {
+const SearchBar: React.FC<ISearchBarProps> = ({ setSearchTerm }) => {
     return (
         <SearchBarGrid>
             <SearchBarContainer>

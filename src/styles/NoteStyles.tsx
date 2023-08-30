@@ -176,6 +176,9 @@ export const NewNoteModalInput = styled.textarea<{bgColor? : string}>`
         height : 12rem;
         background-color : ${props => props.bgColor};
         resize : none;
+        ::placeholder {
+          color: black;
+        }
 `
 
 export const ModalBody = styled.div<{bgColor? : string}>`

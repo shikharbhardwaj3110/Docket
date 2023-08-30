@@ -1,4 +1,4 @@
-import { Note } from "../../features/notes/noteSlice";
+import { INote } from "../../features/notes/noteSlice";
 import {
     NoteContainer,
     NoteData,
@@ -8,13 +8,12 @@ import {
     NoteDate,
     NoteDataInput,
 } from "../../styles/NoteStyles";
-import { AiFillStar } from "react-icons/ai";
 import { getFormattedDate } from "../../utils/dateUtil";
 import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from "react";
 
 interface NoteProps {
-    note: Note
+    note: INote
 };
 
 export interface NoteContainerProps {
