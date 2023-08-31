@@ -8,7 +8,7 @@ import {
     NoteDate,
     NoteDataInput,
 } from "../../styles/NoteStyles";
-import { getFormattedDate } from "../../utils/dateUtil";
+import { formatDate } from "../../utils/dateUtil";
 import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from "react";
 
@@ -23,7 +23,7 @@ export interface NoteContainerProps {
 const NoteItem: React.FC<NoteProps> = (props: NoteProps) => {
 
     let { color, text, date } = props.note;
-    let formattedDate = getFormattedDate(date);
+    let formattedDate = formatDate(date);
 
     const [isEditing, setIsEditing] = useState(false);
     const [textInput, setTextInput] = useState(text);

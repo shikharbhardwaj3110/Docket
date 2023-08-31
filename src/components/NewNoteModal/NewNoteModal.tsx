@@ -9,6 +9,7 @@ import { AiFillRightCircle } from "react-icons/ai";
 import { generateId } from "../../utils/idGenerator";
 import { INote, insertNote } from "../../features/notes/noteSlice";
 import { useDispatch } from 'react-redux';
+import { getFormattedDate } from "../../utils/dateUtil";
 
 
 interface INewNoteModalProps {
@@ -20,12 +21,24 @@ const NewNoteModal: React.FC<INewNoteModalProps> = ({ isModalOpen }) => {
     const [currentColor, setCurrentColor] = useState<string>(colors[0]);
     const [noteInput, setNoteInput] = useState<string>('');
     const inputRef = useRef<HTMLTextAreaElement>(null);
+    //const modalRef = useRef<HTMLDivElement>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (isModalOpen && inputRef.current) {
-            inputRef.current.focus();
+        if (modalRef.current && inputRef.current) {
+            const modalElement = modalRef.current;
+            const inputElement = inputRef.current;
+            const handleModalShown = () => {
+                inputElement.focus();
+              };
+            modalElement.addEventListener('shown.bs.modal', handleModalShown);
+            
+            return () => {
+                modalElement.removeEventListener('shown.bs.modal', handleModalShown);
+            }
+
         }
-    }, [isModalOpen])
+    }, [])
 
     const dispatch = useDispatch();
 
@@ -37,12 +50,14 @@ const NewNoteModal: React.FC<INewNoteModalProps> = ({ isModalOpen }) => {
             id: generateId(),
             text: noteInput,
             starred: false,
-            date: new Date(),
+            date: getFormattedDate(),
             color: currentColor
         };
 
         dispatch(insertNote(newNote));
-
+        if(modalRef.current) {
+            modalRef.current.style.display = 'none';
+        }
     }
 
     return (
@@ -52,6 +67,7 @@ const NewNoteModal: React.FC<INewNoteModalProps> = ({ isModalOpen }) => {
             tabIndex={-1}
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
+            ref={modalRef}
         >
             <div className="modal-dialog">
                 <div

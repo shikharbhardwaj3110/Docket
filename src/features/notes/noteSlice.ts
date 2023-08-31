@@ -4,7 +4,7 @@ export interface INote {
     id : string,
     text : string,
     starred : boolean,
-    date : Date,
+    date : string,
     color : string
 };
 
@@ -22,35 +22,35 @@ const initialState : INotesArray = {
             id : '0c22b52b-30a1-4243-8a4a-7353053ad8ff',
             text : "This is my first note.",
             starred : false,
-            date : new Date('2023/02/03'),
+            date : '03-02-2023',
             color : '#C6D947'
         },
         {
             id : 'b09c6886-cb8c-4d44-b91e-b6a4f8186cea',
             text : "This application might come in handy :).",
             starred : true,
-            date : new Date('2023/04/03'),
+            date : '03-04-2023',
             color : '#F3542A'
         },
         {
             id : 'c09f6226-cb8c-4d44-b91e-b6a4f8186cea',
             text : "Shopping.",
             starred : true,
-            date : new Date('2023/04/03'),
+            date : '03-04-2023',
             color : '#7049F0'
         },
         {
             id : 'e69f6289-cb4d-4d44-b91e-b6a4f8186csd',
             text : "Go to gym.",
             starred : true,
-            date : new Date('2023/02/12'),
+            date : '12-02-2023',
             color : '#F5972C'
         },
         {
             id : '0c22b52b-48e1-4243-9e0e-7353053ad8ff',
             text : "Blank.",
             starred : true,
-            date : new Date('2023/02/12'),
+            date : '15-02-2023',
             color : '#0AA4F6'
         }
     ]
